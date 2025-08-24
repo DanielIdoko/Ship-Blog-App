@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { LogoutUser, RegisterUser, UserLogin } from "../handlers/user.handler.js";
+import {
+  LogoutUser,
+  RefetchUser,
+  RegisterUser,
+  UserLogin,
+} from "../handlers/auth.handler.js";
 
 const authRouter = Router();
 
@@ -7,3 +12,6 @@ const authRouter = Router();
 authRouter.post("/register", RegisterUser);
 authRouter.post("/login", UserLogin);
 authRouter.post("/logout", LogoutUser);
+authRouter.post("/refetch", RefetchUser);
+
+export default authRouter;

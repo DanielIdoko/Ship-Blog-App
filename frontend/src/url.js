@@ -1,2 +1,2 @@
 export const URL = "http://localhost:4000";
-export const IF = 'http://localhost:images';
+export const IMAGE_URL = 'http://localhost:4000/images/';

@@ -26,8 +26,9 @@ logs/
 .env
 .env.*.local
 .env.local
-backend/.env
-frontend/.env
+.env.example
+backend/.env.example
+frontend/.env.example
 
 # Clerk keys (never commit!)
 CLERK_SECRET_KEY*

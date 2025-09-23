@@ -4,6 +4,7 @@ import connectToDB from "./database/database.js";
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.route.js";
 import adminRouter from "./routes/admin.route.js";
+import postRouter from "./routes/post.route.js";
 const app = express();
 
 
@@ -14,6 +15,7 @@ app.use(cookieParser())
 // routes
 app.use('/api', userRouter)
 app.use('/api', adminRouter)
+app.use('/api', postRouter)
 
 
 app.listen(PORT, async () => {

@@ -60,6 +60,10 @@ const postSchema = new mongose.Schema(
         ref: "UserProfile",
       },
     ],
+    likesCount: {
+      type: Number,
+      default: 0
+    },
     views: {
       type: Number,
       default: 0,

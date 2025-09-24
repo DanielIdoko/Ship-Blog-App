@@ -1,5 +1,5 @@
+"use client";
 import { SignIn } from "@clerk/nextjs";
-import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import {
   Tooltip,
@@ -17,14 +17,14 @@ const SignInPage = () => {
             <TooltipTrigger>
               <AiOutlineClose className="text-xl cursor-pointer" />
             </TooltipTrigger>
-            <TooltipContent className="mr-9 bg-accent">
-              <p>Continue without Signing in</p>
+            <TooltipContent className="mr-9 bg-accent dark:text-base">
+              <p>Continue without Logging in</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
       <div className="w-full h-full flex items-center justify-center">
-        <SignIn path="/sign-in" routing="path" />
+        <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
       </div>
     </main>
   );

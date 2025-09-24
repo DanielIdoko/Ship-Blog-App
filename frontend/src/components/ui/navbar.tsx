@@ -23,15 +23,15 @@ const Navbar = () => {
       </Link>
 
       {/* if user is signed in show profile button */}
-      <div className="w-fit h-fit mr-20">
+      <div className="w-fit h-fit mr-6 md:mr-20">
         <SignedIn>
           <UserButton />
         </SignedIn>
         <SignedOut>
           <div className="flex gap-3">
-            <SignInButton>
+            <SignInButton withSignUp mode="redirect">
               <button
-                className="px-4 py-2 rounded-2xl border border-gray-300 dark:border-gray-700 
+                className="px-4 py-2 rounded-2xl border text-small border-gray-300 dark:border-gray-700 
                    text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 
                    transition-colors cursor-pointer"
               >
@@ -39,10 +39,10 @@ const Navbar = () => {
               </button>
             </SignInButton>
 
-            <SignUpButton>
+            <SignUpButton mode="redirect">
               <button
-                className="px-4 py-2 rounded-2xl bg-accent text-white 
-                   hover:opacity-90 transition-opacity cursor-pointer"
+                className="px-4 py-2 rounded-2xl bg-primary text-small text-white 
+                   hover:opacity-90 transition-opacity cursor-pointer shadow-sm dark:shadow-none"
               >
                 Sign Up
               </button>
@@ -53,7 +53,7 @@ const Navbar = () => {
 
       <div className="w-fit h-full">
         <button
-          className="cursor-pointer hover:bg-secondary p-1 rounded-full transition duration-300 ease-in"
+          className="cursor-pointer hover:bg-primary/10 p-1 rounded-full transition duration-300 ease-in"
           onClick={toggleTheme}
           style={{
             color: theme === "light" ? "#121212" : "#fff",

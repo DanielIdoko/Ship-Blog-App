@@ -1,26 +1,27 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-// PUBLIC routes (no login required)
+const protectedRoute = createRouteMatcher(["/", "/dashboard"]);
+
+// Define routes that should be PUBLIC (no login required)
 const publicRoutes = createRouteMatcher([
-  "/",
-  "/posts(.*)",
-  "/profile(.*)",
+  // "/",               
+  "/posts(.*)",      
+  "/profile(.*)",    
   "/api/posts/trending",
-  "/api/posts/:id",
-  "/api/users/:id",
+  "/api/posts/:id",  
+  "/api/users/:id", 
 ]);
 
 export default clerkMiddleware(
   async (auth, req: NextRequest) => {
-    if (!publicRoutes(req)) {
-      // Any route not listed as public → must be logged in
+    if (protectedRoute(req)) {
       await auth.protect();
     }
   },
   {
-    signUpUrl: "/sign-up",
     signInUrl: "/sign-in",
+    signUpUrl: "/sign-up",
     afterSignInUrl: "/",
     afterSignUpUrl: "/",
   }
@@ -28,9 +29,9 @@ export default clerkMiddleware(
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and static files
+    // Skip Next.js internals and all static files, unless found in search params
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    // Always check API routes
+    // Always run for API routes
     "/(api|trpc)(.*)",
   ],
 };

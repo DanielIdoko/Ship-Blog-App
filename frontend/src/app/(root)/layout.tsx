@@ -5,7 +5,7 @@ import Footer from "../../components/ui/footer";
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className="bg-base">
+    <main className="">
       <Navbar />
       {children}
       <Footer />

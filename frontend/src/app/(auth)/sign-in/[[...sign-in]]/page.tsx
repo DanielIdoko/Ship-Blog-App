@@ -26,6 +26,10 @@ const SignInPage = () => {
       <div className="w-full h-full flex items-center justify-center">
         <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
       </div>
+      <p className="text-small text-accent text-center">
+        By Registering with Bolga you agree to our terms of service and privacy
+        policy
+      </p>
     </main>
   );
 };

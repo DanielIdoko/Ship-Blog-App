@@ -4,20 +4,22 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
 /* p{
   color: #131f3c;
 } */
+
 @theme inline {
   /* light mode themes */
   --color-base: #f9f9f9;
   --color-primary: #f38c16;
   --color-secondary: #f3d2ac;
   --color-accent: #111010;
-  --color-gray: #2A2A2A;
-  --color-dark: #0F172A;
-  
+  --color-gray: #2a2a2a;
+  --color-dark: #0f172a;
+
   /* dark mode themes */
-  --color-base-dark: #0F172A;
+  --color-base-dark: #0f172a;
   --color-primary-dark: #f38c16;
   --color-secondary-dark: #ebcca9;
   --color-accent-dark: #f1f0ed;
@@ -86,6 +88,10 @@ html.dark body {
   @apply w-full h-16 p-5 bg-base border-b-1 border-b-gray-200 flex items-center justify-start fixed top-0 left-0;
 }
 
+.navbar .actions a {
+  @apply text-small text-accent dark:text-base hover:text-primary transition duration-300 ease-in;
+}
+
 html.dark .navbar {
   @apply bg-base-dark border-gray-dark;
 }
@@ -93,6 +99,12 @@ html.dark .navbar {
 html.dark .logo {
   @apply text-base;
 }
+
+/* breadcrumbs */
+.breadcrumbs {
+  @apply w-full h-fit px-2 flex items-center justify-start gap-2;
+}
+
 
 /* Clerk styling modifications */
 .cl-internal-1dauvpw {
@@ -118,6 +130,9 @@ html.dark .logo {
 
 .cl-internal-1pnppin {
   @apply outline-0 shadow-none;
+}
+.cl-internal-l2l775 {
+  display: none;
 }
 
 :root {
@@ -196,4 +211,8 @@ html.dark .logo {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.sub-heading{
+  @apply text-medium px-6 text-accent dark:text-base/50
 }

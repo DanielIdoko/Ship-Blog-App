@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getMyProfile, getPublicUserById, updateMyProfile } from "../controllers/user.handler";
+import { getMyProfile, getPublicUserById, updateMyProfile } from "../controllers/user.handler.js";
 
 const userRouter = Router();
 

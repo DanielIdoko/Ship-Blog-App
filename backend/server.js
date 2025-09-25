@@ -1,4 +1,5 @@
 import express, { urlencoded } from "express";
+import cors from 'cors';
 import { PORT } from "./config/env.js";
 import connectToDB from "./database/database.js";
 import cookieParser from "cookie-parser";
@@ -11,6 +12,7 @@ const app = express();
 // Middlewares
 app.use(express.json({urlencoded: false}))
 app.use(cookieParser())
+app.use(cors())
 
 // routes
 app.use('/api', userRouter)

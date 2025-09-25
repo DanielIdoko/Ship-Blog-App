@@ -8,7 +8,7 @@ const postSchema = new mongose.Schema(
       required: true,
     },
     slug: {
-      type: true,
+      type: String,
       required: true,
       unique: true,
       lowercase: true,

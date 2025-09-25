@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deleteUser, getUsers, updateUserRole } from "../controllers/user.handler";
+import { deleteUser, getUsers, updateUserRole } from "../controllers/user.handler.js";
 
 const adminRouter = Router();
 

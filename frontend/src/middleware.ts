@@ -1,22 +1,26 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-const protectedRoute = createRouteMatcher(["/", "/dashboard"]);
+const protectedRoute = createRouteMatcher(["/dashboard"]);
 
 // Define routes that should be PUBLIC (no login required)
 const publicRoutes = createRouteMatcher([
-  // "/",               
-  "/posts(.*)",      
-  "/profile(.*)",    
+  "/",
+  "/posts(.*)",
+  "/profile(.*)",
+  "/posts/create",
+  "/posts/edit/:id",
   "/api/posts/trending",
-  "/api/posts/:id",  
-  "/api/users/:id", 
+  "/api/posts/:id",
+  "/api/users/:id",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
 ]);
 
 export default clerkMiddleware(
   async (auth, req: NextRequest) => {
-    if (protectedRoute(req)) {
-      await auth.protect();
+    if (!publicRoutes(req)) {
+      await auth.protect(); // Use await and call auth()
     }
   },
   {

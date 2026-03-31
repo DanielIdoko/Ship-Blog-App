@@ -1,0 +1,10 @@
+export const restrictTo = (...roles: string[]) => {
+  return (req: any, res: any, next: any) => {
+    if (!roles.includes(req.user.mongoUser.role)) {
+      return res
+        .status(403)
+        .json({ message: "Forbidden: Insufficient permissions" });
+    }
+    next();
+  };
+};
